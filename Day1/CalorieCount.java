@@ -14,7 +14,7 @@ public class CalorieCount {
 		BufferedReader reader;
 
 		try {
-			reader = new BufferedReader(new FileReader("input.txt"));
+			reader = new BufferedReader(new FileReader("Day1/input.txt"));
 			String line = reader.readLine();
 
 			while (line != null) {
