@@ -6,18 +6,37 @@ import java.io.IOException;
 public class RockPaperScissors {
 
     /**
-     * Converts the move to an int where:
-     * Rock == A == X == 1
-     * Paper == B == Y == 2
-     * Scissors == C == Z == 3
+     * Converts the opponent's move to an int where:
+     * Rock == A == 1
+     * Paper == B == 2
+     * Scissors == C == 3
      * 
      * @param c the move to convert
      * @return the move as an int
      */
-    public static int getMove(char c) {
+    public static int getOpponentMove(char c) {
         if (c == 'A' || c == 'X') return 1;
         if (c == 'B' || c == 'Y') return 2;
         return 3;
+    }
+
+    /**
+     * Gets the player's move as an int
+     * 
+     * @param opponent opponent's move
+     * @param c player's move to convert
+     * @return the player's move as in int
+     */
+    public static int getPlayerMove(int opponent, char c) {
+        if (c == 'Y') return opponent;
+        if (c == 'X') {
+            if (opponent == 1) return 3;
+            if (opponent == 2) return 1;
+            return 2;
+        } 
+        if (opponent == 1) return 2;
+        if (opponent == 2) return 3;
+        return 1;
     }
 
     /**
@@ -61,8 +80,8 @@ public class RockPaperScissors {
 			String line = reader.readLine();
 
             while (line != null) {
-                int opponent = getMove(line.charAt(0));
-                int user = getMove(line.charAt(2));
+                int opponent = getOpponentMove(line.charAt(0));
+                int user = getPlayerMove(opponent, line.charAt(2));
                 int win = getResult(opponent, user);
                 total += getPoints(win, user);
                 line = reader.readLine();
