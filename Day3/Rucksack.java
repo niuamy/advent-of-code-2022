@@ -57,6 +57,23 @@ public class Rucksack {
         return ' ';
     }
 
+    /**
+     * Find duplicate character between 3 strings.
+     * 
+     * @param a first string
+     * @param b second string
+     * @param c third string
+     * @return duplicate character
+     */
+    public static char findDuplicateChar(String a, String b, String c) {
+        for (int i = 0; i < a.length(); i++) {
+            char ch = a.charAt(i);
+            if (b.indexOf(ch) != -1 && c.indexOf(ch) != -1) return ch;
+        }
+
+        return ' ';
+    }
+
     public static void main(String[] args) {
         BufferedReader reader;
 
@@ -67,7 +84,9 @@ public class Rucksack {
 			String line = reader.readLine();
 
             while (line != null) {
-                char c = findDuplicateChar(line);
+                String line2 = reader.readLine();
+                String line3 = reader.readLine();
+                char c = findDuplicateChar(line, line2, line3);
                 int points = map.getOrDefault(c, 0);
                 total += points;
                 line = reader.readLine();
