@@ -48,8 +48,9 @@ public class CampCleanup {
         int c = nums[1][0];
         int d = nums[1][1];
 
-        if (a <= c && b >= d) return true;
-        if (c <= a && d >= b) return true;
+        if (a <= d && b >= c) return true;
+        if (d <= a && c >= b) return true;
+
         return false;
     }
 
