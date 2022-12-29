@@ -35,12 +35,12 @@ public class CampCleanup {
     }
 
     /**
-     * Checks whether one number pair is enclosed in the other.
+     * Checks whether one number pair overlaps with the other.
      * Ex: {[2,3], [1,5]} => true
      * > {[1,2], [3,4]} => false
      * 
      * @param nums the number pairings
-     * @return true if one number pairing is enclosed in another, false otherwise
+     * @return true if one number pairing is overlaps with another, false otherwise
      */
     public static boolean contained(int[][] nums) {
         int a = nums[0][0];
